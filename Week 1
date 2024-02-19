@@ -1,0 +1,21 @@
+Q1-WebStrike
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c12ce469-401b-4994-9750-95e154c3f6b6)
+khi mở wireshark ta có thể thấy được các ip và ta có thể check ip của 2 địa chỉ ip là 117.11.88.124 và 24.49.63.79
+khi check 24.49.63.79 ta biết được city là Hagerstown nhưng khi nhập vào đáp án --> sai
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/3af0da1c-4d4c-47a3-91d1-657d63ceb54a)
+check tiếp ip 117.11.88.124 ta thấy đc là tianjin và khi nhập vào đáp án --> đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b9070b2b-343f-45a5-adec-746b2b160f13)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/ad901da1-a6dd-4cf0-b8a8-08383d949b04)
+
+Q2:
+ngay cột protocol ta có thể ấn vào HTTP hoặc TCP và chọn Follow --> TCP Stream để xem cuộc trò chuyện TCP giữa máy chủ và khách
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/dbb920dc-353a-4501-8332-37b4203cf739)
+và check tất cả các phương thức HTTP và TCP ta đều thấy:
+User-Agent : Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2a9c7032-a498-4325-ba9b-dd92a8dfe3f3)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d2e71069-6b7e-4593-954d-2fd8f98bff79)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/775fd253-472b-4fce-8334-375e3c37e0f2)
+Và khi ta nhập kết quả thì phù hợp với Format
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cf51bfdc-cdbf-44f7-8fd3-2725481405e1)
+
+Q3:
