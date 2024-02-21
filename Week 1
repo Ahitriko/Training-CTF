@@ -41,3 +41,10 @@ Ngoại trừ các cổng 80 hay 443 được sử dụng cho web shell độc h
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/81260c34-e832-43b6-b030-7fddb3f12b65)
 
 Q6:
+đầu tiên em lọc giao thức HTTP trước để tìm các gói tin liên quan đến giao thức này
+em thấy PORT khá ít nên em check phần này trước ,và khi truy cập vào gói tin "POST / HTTP/1.1" thì thấy đường dẫn /etc/passwd ngay ở mục đích đến (là phần chữ xanh )
+nên có thể có người đang muốn truy cập ,đọc hoặc lấy đi file passwd --> passwd là đáp án
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d68f6d72-29d3-4c65-a8bd-85f5bc59491d)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/dda50807-409f-4f7c-8074-1a346f2063ac)
+
+Q1 - 
