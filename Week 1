@@ -19,3 +19,17 @@ Và khi ta nhập kết quả thì phù hợp với Format
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cf51bfdc-cdbf-44f7-8fd3-2725481405e1)
 
 Q3:
+Sau khi check file có cổng PORT ta thấy ngay tại mục "Content_Disposition" ta thấy một filename là : "image.jpg.php" và "image.php"
+Đây có thể là một tệp script PHP thay vì một tệp hình ảnh hợp lệ và nó chứa phần mở rộng thực thi như php và có khả năng tạo ra những rủi ro bảo mật nghiêm trọng, như thực thi mã từ xa.
+Ta thấy filename "image.jpg.php" đang ở dạng đúng với format nên ta nhận image.jpg.php làm đáp án
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/8cdfeacb-9d48-47b0-9804-c11a6edea361)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f8c96f21-e9aa-4dbc-9aaa-6c8cf712d669)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b3848a0f-bd66-4528-a1d1-c6cafe41a605)
+
+Q4:
+sau khi check một vài file liên quan đến uploads em thấy chúng đều có các mục là "Referer: http://shoporoma.com/reviews/uploads/"
+để ý đến format ta thấy /reviews/uploads/ rất phù hợp nên ta điền vào format và nhận lại kết quả đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2e43eaa7-26a7-4d5c-8cde-88ea6cd784f1)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/963ff652-029f-4876-a0e8-5a842dee6fd3)
+
+
