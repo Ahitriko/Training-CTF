@@ -32,4 +32,12 @@ sau khi check một vài file liên quan đến uploads em thấy chúng đều 
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2e43eaa7-26a7-4d5c-8cde-88ea6cd784f1)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/963ff652-029f-4876-a0e8-5a842dee6fd3)
 
+Q5:
+Ngoại trừ các cổng 80 hay 443 được sử dụng cho web shell độc hại thì cũng còn cổng 8080 có tác dụng tương tự như 2 cổng 80 và 443 :
++ tránh bị phát hiện từ các biện pháp bảo vệ
++ lưu trữ và triển khai mã độc
++ thực thi các lệnh bất hợp pháp
++ kết nối từ xa
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/81260c34-e832-43b6-b030-7fddb3f12b65)
 
+Q6:
