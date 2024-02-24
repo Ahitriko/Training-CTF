@@ -47,4 +47,81 @@ nên có thể có người đang muốn truy cập ,đọc hoặc lấy đi fil
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d68f6d72-29d3-4c65-a8bd-85f5bc59491d)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/dda50807-409f-4f7c-8074-1a346f2063ac)
 
-Q1 - 
+Q1 - Poisonedcredentials
+Sau khi lướt một lúc r em thấy các phương thức LLMNR và MDNS đều có cụm query ... fileshaare nên em thấy khá là nghi ngờ,
+khi em xem file hex của chúng thì đều có đoạn đầu khá giống nhau 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/601c8952-8b9c-4192-80d3-35af9ef10526)
+còn em để ý một gói tin có giao thức NBNS thì thấy có duy nhất một gói tin với infor "Name query NB FILESHAARE" và đặc biệt là đoạn hex đầu của nó lại khác biệt hẳn với các gói tin còn lại nên em nghĩ nó là đáp án
+nhập vào kết quả thì em nhận được kết quả đúng.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/fc4f90fd-077e-44cc-8d1a-a031805bb244)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4c608e6b-e655-4b2c-9b03-80e771c7e380)
+
+Q2:
+ngay dưới đoạn infor tìm được filename trên em thấy một gói tin với nội dung Name query respone NB 192.168.232.215" em cũng đặt ra sự nghi ngờ với nó.
+và em nhập vào đáp án thì thấy nó đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2a406e85-6171-43a1-ab30-de91c59f270d)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f5d36468-a7f0-4e05-99bb-467a642d180a)
+
+Q3:
+khi biết ip của máy lừa đảo thì em lọc ip đó ra và thấy Destination ip có 2 ip là 192.168.232.162 và 192.168.232.176 . 
+em thử lần lượt 2 ip thì nhận được đáp án là 192.168.232.176
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9cc7763f-7644-4924-b1b6-2dab3294ebdd)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/8eed47b6-d99a-48db-a031-c226c97aca8e)
+
+Q4:
+để thuận tiện cho việc tìm tên người dùng em dùng bộ lọc để lọc từng giao thức rồi xem thông tin
+em lọc đến SMB2 thì đọc được 1 gói tin có "acct:janesmith" ( có thể hành động được thực hiện bởi ông này nên ông janesmith sẽ là user) và từ đó em nhận được đáp án.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/dec35bf9-ebb5-4f69-8778-745b30dc4fc9)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f54153f9-475d-4c4c-a5fc-022832a2775d)
+
+Q5: 
+em dùng bộ lọc , lọc SMB ,SMB2 để tìm máy chủ
+khi lọc SMB em chỉ thấy 3 gói tin và đều k có thông tin của máy chủ
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a65691be-5c11-4f4e-80e1-199adc443014)
+em tiếp tục lọc đến SMB2
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/06aa71d7-bd5e-4a62-8673-38ed09824ddb)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c7d6972a-1c3b-4d7d-92f7-7aaa5c04af00)
+thì em có thể tìm được thông tin của NetBIOS computer name : ACCOUNTINGPC như hình. --> và đây hoàn toàn khớp với đáp án.
+
+Q1 - Openwire.
+sau khi đọc thông tin từ một gói tin của giao thức HTTP và có tên như hình em thấy HOST : 146.190.21.92
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b148a560-4cc6-4b1c-8466-c13ccc99e9e4)
+và em nghi ngờ đây có thể là đáp án và khi nhập vào để check đáp án em nhận được đây là đáp án đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/0647cca3-1a30-4784-8e6a-2e859d5fcdb6)
+
+Q2:
+em xem thử các port của các gói tin (gồm Src port và Dst port) và em nhận thấy có một số gói tin đầu có sự khác biệt khi có port 61616 và 47284 ,nên em sẽ thử 2 port này và nhận đucợ đáp án là port 61616.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/567a305d-056e-4849-bb24-e998c2e5a555)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/73875192-1f22-4997-82cd-f115ea1ead1c)
+
+Q3:
+phần này sau khi lọc rồi tìm kiếm thông tin trong wireshark của các gói tin trong đó em k thấy hint gì về dịch vụ đó nhưng khi xem thông tin của cổng 61616 thì em thấy Cổng 61616 thường được sử dụng cho dịch vụ Apache ActiveMQ.
+em thử nhập đáp án là dịch vụ kia thì đúng ạ
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/12fd2d42-25f9-4105-8664-412f106b4c9b)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a82bbeaa-765d-484d-9098-72ba02ff3dcc)
+
+Q4:
+sau khi lướt các src port và dst port em thấy port 128.199.52.72 khá được thấy như các port 146.190.21.92 và em nghĩ có thể nó là ip thứ 2 của máy chủ c2 
+(còn port 84.239.49.16 cũng được thấy khá ít nhưng em nhập vào không đúng với đáp án của bài)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/325b0aff-916f-4710-a5cd-a4a901ef6cf8)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/79e77640-1b12-40e4-afcf-227de0b45608)
+và khi nhập vào em nhận đc đáp án đúng là 128.199.52.72
+
+Q5:
+đầu tiên em lọc giao thức http trước để xem thông tin từ chúng.
+để các các giao thức này em thấy được 2 tên là invoice.xml và docker.
+em thử cả 2 tên và nhận được kết quả là docker
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/ea45358d-c40b-4b42-9817-04095966c03e)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f8e7fa11-634c-4882-bb33-06ab84a3331d)
+
+Q6:
+đầu tiên em lọc các giao thức http để phân tích.
+em đọc gói tin có stt thứ 11 và tìm được thông tin là " <bean id="pb" class="java.lang.ProcessBuilder" init-method="start"> "
+và Java class ở đây chính là "java.lang.ProcessBuilder" 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cd66cda8-849d-4641-a7ff-6a90d0011b82)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9c2afe10-8801-4b7a-9bd4-75d53efcf39f)
+
+Q7:
+
+
+
