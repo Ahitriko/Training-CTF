@@ -1,0 +1,44 @@
+Q1 - Psexec-hunt :
+đầu tiên em sử dụng tính năng Statistics -> Endpoints để xem tất cả ip xuất hiện 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/faae0d10-bd39-41e2-86a8-f51d315a038a)
+và em thử nhập các ip có trong đó vào và có đáp án đúng là : 10.0.0.130
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9539cc6b-41f2-4675-896a-06065d288b94)
+
+Q2 :
+đầu tiên em lọc tên máy chủ của kẻ tấn công tìm được ở Q1 và giao thức smb2 để tìm thông tin:
+em tìm được một thong tin có NetBIOS name là SALES-PC và target name cũng là SALES-PC, mà nó cũng có formagt giống đáp án nên em nhập vào thì nhận được kết quả đúng.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d1341df1-86df-4c90-b86f-625336389b6f)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9d8d4d34-8b93-43a4-b160-a26396f3456b)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e5ca3620-777f-4357-a4ac-d3be2e9f5ce5)
+
+Q3:
+ngay trong gói tin em vừa tìm được ở Q2, em cũng có nhận được một username là ssales .
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c3bdfa17-ad37-41ba-81b6-795600ab88aa)
+và khi em nhập username đó vào đáp án thì đúng .
+
+Q4:
+để ý các gói tin em thấy có các thông tin liên quan đến PSEXESCV nên em có tìm hiểu thì biết được đây cũng là một dịch vụ dùng để thực thi các lệnh hoặc các chương trình trên các máy tính từ xa trong mạng máy tính
+nên em đã nhập nó vào đáp án và có kết quả đúng.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cd98abff-76cd-46ea-a7ac-cf63ece83986)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/fc32bec5-5b71-40e2-802d-1c4794121e48)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/19d14820-2426-445e-915a-1fa375ae6ac7)
+
+Q5:
+em check một vài gói tin và nhận được thông tin giống format đáp án là ADMIN$ 
+ADMIN$ :là một tài nguyên chia sẻ mặc định trên các máy tính chạy hệ điều hành Windows trong mạng nội bộ. Nó thường được sử dụng cho mục đích quản trị từ xa và chia sẻ tập tin.
+nó cũng khá giống yêu cầu của bài nên em nhập vào đáp án và nhận về kq đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/23561b0e-c232-42fa-93a5-1a3bd1a40293)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/46fc57a0-48e7-4c1a-a62b-186a0fb130c1)
+
+Q5:
+đầu tiên em lọc giao thức SMB2 và em tìm thông tin từ một sooss gói tin có xuất hiện thêm một thông tin là IPC$
+IPC$ là một tài nguyên chia sẻ mặc định trên các máy tính chạy hệ điều hành Windows trong mạng nội bộ ( theo em tìm hiểu trên chat gpt)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d042a620-c54b-45f4-80be-99b6d6ba85f2)
+và khi em nhập nó vào đáp án thì hoàn toàn đúng.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e4b5a045-3eed-44a3-b62f-3100929c902f)
+
+Q6:
+khi em dùng bộ lọc để lọc giao thức BROWSER để tìm kiếm thông tin thì có phát hiện sự liên quan đến MARKETING_PC nên em nghĩ nó chính là đáp án của đề bài
+và khi em so nó với format đề cũng giống nên em nhập nó vào đáp án.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a132000a-028f-49de-8031-3a1895fa1f25)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/caac5f1e-0197-4e6e-ba7f-3946d877bba4)
