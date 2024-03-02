@@ -42,3 +42,44 @@ khi em dùng bộ lọc để lọc giao thức BROWSER để tìm kiếm thông
 và khi em so nó với format đề cũng giống nên em nhập nó vào đáp án.
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a132000a-028f-49de-8031-3a1895fa1f25)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/caac5f1e-0197-4e6e-ba7f-3946d877bba4)
+
+Q1 - The Crime.
+sau khi mở file trên ALEAPP em thấy ở mục app icons có một số app nhưng để giao dịch thì có lẽ sẽ dùng đến app Olymp Trade nên có thể nó chính là đáp án.
+và khi em nhập tên nó vào thì đúng là nó.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b46eb508-39d2-4759-8b8e-5fcab22ee3c9)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2ad6599e-12f4-4df5-8922-9e347723bf62)
+
+Q2 :
+em nghĩ nếu nạn nhân nợ thì có thể sẽ có thông tin qua tin nhắn hoặc thông báo một app bất kì nào đó
+sau thời gian tìm kiếm thì tại mục SMS messages có thông tin về số tiền :
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/108ab93a-1017-48ec-99da-bb4027033d9d)
+và nhập số tiền vào đáp án thì hoàn toàn khớp.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/3301ac1f-8693-4821-90fa-de65908a94e3)
+
+Q3:
+sau khi xem được số khoản nợ thì em có thể biết thêm thông tin là số điện thoại của người kết nối với nạn nhân là +20 117 213 7258
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cb46d28e-adc7-42b8-9de3-1e726b445054)
+sau đó em tìm kiếm tại mục contacts để xem thông tin người đó là ai và biết được tên họ là Shady Wahab
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c3cbcea6-207b-4b62-9b5a-37ce93cfc98c)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/3f69ff61-c8f1-4cae-9663-a1e523c7dde0)
+
+Q4:
+em tìm đến mục image manager cache và thấy được vào ngày 20/09/2023 nạn nhân có chụp ảnh tại một nơi như ảnh
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/31a357ce-d512-4583-9540-2ec58baacc2f)
+em dùng gg image để tra cứu thì biết đây là một khách sạn tên là "The Nile Ritz-Carlton"
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f3904a6d-0950-43d2-9ae1-26a2dd8afe9c)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2214554a-63ba-4c37-9cff-e64b9ef01d22)
+và nó là đáp án của q4
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/6cd8b3f0-ee47-45c1-a4ee-7965ae663bce)
+
+Q5:
+em thấy địa điểm gặp mặt của 2 người tới là The Mod Museum nên em có tra ra nó là một bảo tàng ở Las Vegas
+nên em nghĩ có thể đây sẽ là đích đến tiếp theo của nạn nhân và em nhập vào đáp án nó đúng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e760b100-5746-4974-b5fb-78328014eda5)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b9c6e2f9-c71d-436b-8872-961376bf47a5)
+
+Q6:
+sau khi em vào discord chat của nạn nhân em thấy được cuộc trò chuyện giữa 2 người và có hẹn nhau đến một địa điểm là The Mob Museum
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b28c1bf6-c1aa-42ad-99b4-d90213dd6907)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/6a3726d7-1900-49ca-adb9-38454988718a)
+
