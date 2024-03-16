@@ -122,6 +122,11 @@ và Java class ở đây chính là "java.lang.ProcessBuilder"
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9c2afe10-8801-4b7a-9bd4-75d53efcf39f)
 
 Q7:
+em tìm kiếm trên mạng về mã định danh của nó :CVE identifier associated with the java.lang.ProcessBuilder vulnerability
+và có kết quả là : ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/86c83ea6-11dc-49ee-87e7-1c9a627128c2)
+và nhập vào kết quả : CVE-2023-46604
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d1d8dd02-39db-4047-907b-5617f40d12f7)
+
 
 
 
