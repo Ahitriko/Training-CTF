@@ -34,11 +34,34 @@ và em thấy được thông tin khá hữu ích là một đoạn flag dạng 
 và khi decode nó em được một hàm băm md5 là :3a19697f29095bc289a96e4504679680
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4ebd86ae-cac9-4bad-9c8e-16469af6ef7c)
 và nó cũng chính là đáp án cần tìm
+
 Q3:
 ngay từ Q1 ngay khi chạy lệnh python3 vol.py -f memdump.mem  windows.pslist.PsList | grep '4824' ở bên Q1
 em có thấy ngay ở đầu chính là tên tiến trình của tiến trình gốc độc hại "explorer.exe"
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e949f114-f0d2-4400-88fd-7f25ea3c7054)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/6b89c337-4274-436d-8389-44eed497bc4e)
+
+Q4:
+đầu tiên em sử dụng plugin 'printkey' để trích xuất thông tin từ hive registry của Windows liên quan đến  "Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged" từ tệp memdump.mem
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/bccac118-94ad-4f90-a376-42aca1d9b1f3)
+tại đây ,em có thêm được thông tin về phần dữ liệu tiếp theo có thể sử dụng là 010103000F0000F0080000000F0000F0E3E937A4D0CD0A314266D2986CB7DED5D8B43B828FEEDCEFFD6DE7141DC1D15D
+theo hint em tiếp tục dùng plugin "printkey" để trích thông tin :
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2e0da2ab-6085-45d0-a507-13cb5078e015)
+ở đây, tại offset 0xd38985eb3000 cuối dùng em thấy có khóa DefaultGatewayMac thì đây chính là điều chúng ta cần truy cập để xem.
+tại kênh discord có một gợi ý là chúng ta có thể dùng "dump the hives anh degripper" để phân tích 
+(RegRipper cung cấp một cách tiếp cận linh hoạt để khai thác dữ liệu từ registry Windows thông qua việc sử dụng các plugins)
+tại mục thông tin của regripper em có thể biết được mình có thể dùng tham số -p và -r để phân tích 
+(-r để registry hive file để phân tích , -p sử dụng plugin)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/87af594f-7d56-44af-a9b6-5fb1429e6053)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c2086046-52a1-42fe-85b0-da63006a8506)
+trong lệnh: regripper -r registry.SOFTWARE.0xd38985eb3000.hive -p networklist
+SOFTWARE là một phần tên của tệp ,0xd38985eb3000 là offset, hive chỉ định đây là một hive registry đã được trích xuất
+và ở đây em thấy được đây là nội dung của DefaultGatewayMac là DefaultGatewayMac: 00-50-56-FE-D8-07
+vì format đáp án là **:** nên em chuyển các dấu - thành : và nhập vào kết quả
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9657d54a-fd5c-494d-91ca-006c775c2dae)
+
+
+
 
 Q5:
 sau khi tìm hiểu thì em thấy mình có thể sử dụng plugin 'mftparser'thì em có sử dụng nó để chạy để phân tích các mục MFT tiềm năng trong bộ nhớ. 
