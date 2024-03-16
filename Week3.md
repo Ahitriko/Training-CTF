@@ -31,6 +31,21 @@ và em tạo một hash pass để crack pass bằng john the ripper
 bằng lệnh python3 /mnt/c/Users/MSII/Downloads/john/run/deepsound2john.py 00000039.wav > crakpass.txt 
 chạy script deepsound2john.py để chuyển đổi dữ liệu từ tệp âm thanh có tên là "0000000039.wav" sang định dạng mật khẩu mà John the Ripper có thể sử dụng để thực hiện các tấn công
 tiếp theo,để crack pass ta phải có một wordlist pass để bẻ khóa nó , đó chính là rockyou("rockyou" là một danh sách từ điển phổ biến được sử dụng trong các cuộc tấn công mật khẩu. )
-nhưng đến đoạn này em lại dùng rockyou không được (em có đi hỏi và sử dụng thêm một vài tool như hash suite,hash cat nhưng k đc:))), chắc do máy em bị lỗi ạ)
-
+em làm tiếp tục trên kali và đặt tên file là hashcrack.txt thay cho crackpass.txt
+quả thật khi dùng lệnh "john -wordlist=/home/bawc/challenge/john/doc/rockyou.txt hashcrack.txt" thì nó đã crack được hash và có một pass được tìm thấy là ragerocks123
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/863f2154-f531-4c2a-b884-fdb9e348fb21)
+sau đó em lấy pass nhập vào deepsound thì nhận được một file 2312.pdf
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/0bf46cf7-6330-44a9-9be1-1b04a89c7353)
+và khi mở file đó thì em thấy có hình ảnh bên dưới
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f75a6ef0-8156-4e89-b7f9-b3f671406ed3)
+em dùng strings để xem nội dung chứa trong file đó và có một đoạn text khá đáng nghi
+nó có các funtion() và có các từ liên quan đến JavaScript, vậy có lẽ đây là một đoạn code của JavaScript .
+sau khi sắp xếp lại nó và em chạy thử code nhưng không thấy điều gì đặc biêt.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/30c645ab-6ef8-44c0-82ac-c1e95bbfe660)
+để ý đến các đoạn code phía dưới em thấy khá đặc biệt vì nó chứa các kí tự khá giống các kí tự mình có thể decode
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/ae985e72-7449-4eea-bb01-baf23cdf01f1)
+và khi em sắp xếp nó như trên và ghi ra được đoạn text này "IZWGCZ33IFZGKVKMN5ZXIP3"
+em đã dùng cipher identify để decode chúng và nhận được flag là Flag{AreULost?`
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/500e3d57-9139-47f5-862c-2b640befadf8)
+nhưng mà khi em nhập flag tren không được và em thêm thành Flag{AreULost?`} và đã đúng.
 2.
