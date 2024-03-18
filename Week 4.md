@@ -61,8 +61,6 @@ vì format đáp án là **:** nên em chuyển các dấu - thành : và nhập
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9657d54a-fd5c-494d-91ca-006c775c2dae)
 
 
-
-
 Q5:
 sau khi tìm hiểu thì em thấy mình có thể sử dụng plugin 'mftparser'thì em có sử dụng nó để chạy để phân tích các mục MFT tiềm năng trong bộ nhớ. 
 nhưng mà có vẻ phiên bản của volatility3 không sử dụng được plugin này
@@ -73,6 +71,18 @@ strings memdump.mem | grep -F '.txt'
 sau đó em thấy khá nhiều tệp dạng txt như test.txt , và trong các filename em tìm được filename khá phù hợp với format đáp án
 đó là file yes.txt
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4ecdd086-d740-46a6-982f-890d1283e67e)
+
+Q6:
+đầu tiên em dùng imageinfo để xác định thông tin về hình ảnh bộ nhớ (volatility2)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/ef7b2623-f7b7-4fad-b125-6bbfcb82f039)
+ở đây em có thấy được các Suggested Profile có khá nhiều phiên bản, kết hợp với hint từ đề bài , em sử chạy thử với Win10x64_17134
+bằng cách sử dụng mftparser và lệnh grep để tìm kiếm cụm 13cubed
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f5fc7287-a3f5-4706-bdf1-6d52a8383d2e)
+ và ở đây, em thấy có 2 đường dẫn liên quan đến 13cubed là 
+ Users\CTF\AppData\Local\Packages\MICROS~1.MIC\AC\#!001\MICROS~1\Cache\AHF2COV9\13cubed[1].htm
+  Users\CTF\AppData\Local\Packages\MICROS~1.MIC\AC\#!001\MICROS~1\Cache\IQDBNKYD\13Cubed[1].png
+so lại với format của đề thì vẫn thiếu phần trước Users thì nó có thể là loại ổ đĩa, và em thử thì nó là ổ C
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c3bff22f-e1a3-4fe8-aa0d-0ed15813659a)
 
 
 
