@@ -83,3 +83,47 @@ sau khi em vào discord chat của nạn nhân em thấy được cuộc trò ch
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b28c1bf6-c1aa-42ad-99b4-d90213dd6907)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/6a3726d7-1900-49ca-adb9-38454988718a)
 
+Q1 - SpottedInTheWild:
+sau khi giải nén file bằng rar, em nhận được một disk và khi em dùng password để mở nó thì em thấy xuất hiện rất nhiều thư mục.
+em mở nó trên FTK image (1 tool có khả phân tích ổ đĩa và dữ liệu)
+tại đây em có tìm được một thư mục Downloads và ở đây, em thấy có một folder có tên là telegram desktop
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/ada0c025-b4c9-4178-81e2-0cb50feae049) 
+ở trong đó có những file có tên là SANS SEC401.rar
+theo yêu cầu của bài thì đi tìm một file được tải xuống nên em nghĩ có thể là sanssec nhưng em nhập vào lại không đúng
+để ý về trước thì em nghi ngờ về telegram desktop (telegram nó cũng là một ứng dụng nên em khá nghi ngờ nó)
+và khi em nhập nó vào thì đúng với kết quả
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/631220c0-34bf-4cd9-953d-2dd0cb952f1b)
+
+Q2:
+đầu tiên em có thể xem properties của file này em thấy được time create là 03/02/2024 2:23:20 PM nhưng em nhập vào không đúng 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f5886ce2-ecc9-4b21-a8ae-fbb680cb9d0f)
+tương tự như vậy, em cũng có thể view properties trên FTK imager và em thấy được time create của nó khá khác biệt so với em xem trực tiếp ở file
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/930ae76f-8045-4120-a05e-5551cce5c47d)
+2/3/2024 7:33:20 AM là time mới được tìm thấy
+có thể là timee đã được thay đổi, và khi em nhập vào time trên thì phù hợp với đáp án
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/5b4c0b2b-eefc-4ab6-88fd-f7c9a8bb856d)
+
+Q3:
+để ý ở đây em thấy được file độc hải được tải về là dạng rar, thì khả năng lỗ hổng chính là liên quan đến nó
+em có tìm kiếm được thông tin về loại lỗ hổng CVE liên quan đến loại file rar thì có một loại định danh CVE là CVE-2023-40477
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/713a107f-9333-4f54-aed8-0f2d47216459)
+em nhập vào nó không chính xác nên em tiếp tục tìm kiếm những loại định danh CVE khác và em tìm được một định danh CVE nữa là CVE-2023-38831
+CVE-2023-38831 có thể giúp kẻ tấn công có thể khai thác lỗ hổng này bằng cách tạo kho lưu trữ RAR hoặc ZIP đã sửa đổi chứa các tệp độc hại, điều này có thể dẫn đến việc thực thi mã tùy ý
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/93b8c90c-5579-403e-8e5e-f95691cd5ead)
+và đó cũng là đáp án của câu này
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2182fb91-7118-4c22-9745-fec7f6a39203)
+
+Q4 :
+đi nghiên cứu tiếp về file SANS SEC401.rar, em có thấy thêm một file dạng khá kì lạ , đó chính là SANS SEC401.pdf .cmd
+( đối với file .cmd ,nó có thể được sử dụng để triển khai các hành động bảo mật, kiểm tra lỗ hổng, thực hiện các tác vụ tự động hoặc thậm chí là để thử nghiệm các kịch bản tấn công trên hệ thống Windows và có thể chứa các mã độc hại và tệp lệnh nguy hiểm)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b23420c2-1792-4aaf-a16b-8798a17c3643)
+và SANS SEC401.pdf .cmd cũng là đáp án của câu này
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/11019321-f583-4f2d-8aad-8e6d444c7b5b)
+
+Q5:
+khi em mở file trên trên cmd thì em thấy khá nhiều thông tin kì là , nhưng khi để ý thì em thấy có một url như sau
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/5c7b85b5-1955-4391-8c4e-b29be874d1c7)
+và đó cũng chính là kết quả cảu câu hỏi này 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2fde6cc8-cd34-4091-9d93-ff082c3f4bad)
+
+Q6:
