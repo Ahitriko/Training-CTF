@@ -127,3 +127,28 @@ và đó cũng chính là kết quả cảu câu hỏi này
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2fde6cc8-cd34-4091-9d93-ff082c3f4bad)
 
 Q6:
+đầu tiên, em tìm hiểu và biết đuochư thông tin của file nhật kí là file log,nó sẽ lưu
+( Tệp nhật ký chứa bản ghi nhật ký của tất cả các quy trình, sự kiện và thông báo cùng với các dữ liệu mô tả bổ sung và nó chứa thông tin về các tác vụ, hoạt động của máy chủ hoặc ứng dụng)
+và em tìm đc file log tại E:\C\Windows\System32\winevt\logs
+và ở đây em thấy khá nhiều file dạng evtx 
+(các file .evtx chứa các events log và nó còn chứa các thông tin về các hoạt động, lỗi, cảnh báo và thông tin hệ thống khác được ghi lại trong quá trình sử dụng máy tính chạy)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/28e6453f-0155-40aa-addd-5a431c54eae5)
+để xem nội dung của nó, em export hết chúng để dễ dàng nghiên cứu.
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e8338913-05ea-4b4f-a5b4-9d30bec262b7)
+sau khi nghiên cứu các file trên thì em có tìm ra được 2 tên file chính là vmtoolsd.exe và Eventlogs.ps1
+có vẻ 2 tệp tin  trên khá đáng nghi nên em nhập chúng vào đáp án và nhận được đáp án là Eventlogs.ps1
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c55c7b9f-aec1-4c47-b11e-21b521009713)
+
+Q8:
+ở câu 5, khi em chạy file trên cmd thì có phát hiện thêm một command khá đáng nghi chính là
+schtasks /create /sc minute /mo 3 /tn "whoisthebaba" /tr C:\Windows\Temp\run.bat /RL HIGHEST
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c55c7b9f-aec1-4c47-b11e-21b521009713)
+và em nhập nó vào đáp án thì alf chính nó .
+
+Q9:
+câu này em dựa theo số kí tự trong format để em đoán đường daaxnc ảu nó
+và em đoán được đoạn đường dẫn của nó chính là C:\Users\Administrator\AppData\Local\Temp
+và dựa vào số kí tự của file và format thì em có thể đoán được nó là một dạng file . gì đó có 3 kí tự sau 
+và số kí tự tên file có 6 kí tự nên em tìm được filename là BL4356.tx
+và kết quả đầy đủ là C:\Users\Administrator\AppData\Local\Temp\BL4356.txt
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d9878acb-459a-468b-b4ab-acecbf6e4472)
