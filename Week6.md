@@ -107,7 +107,14 @@ em tìm được nơi xác định người dùng cuối cùng
 và dựa theo thông tin đó, em tìm folder WinLogon trong RegistryExplorer và tìm được thông tin của người đăng nhập cuối cùng chính là jim.tomato
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2ed22c71-fc3a-4bab-ac9e-ac75c6f498ae)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/955ba589-8bdf-40f3-97e1-af9d71074ac3)
+
 Q15:
+dựa theo hint của bài thì em đi theo đường dẫn và tìm được folder places.sqlite và em export nó mở trên Sqlite
+ở đây em thấy thông tin trong bảng moz_places có chứa thông tin liên quan đến đáp án
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/1602e054-6618-44ac-9451-37c26be6e300)
+em thấy lịch sử tìm kiếm của Tim có những thông tin như flirt with women với có thể là lời khen "Your Secretary Is Cute"
+và có khả năng người mà Tim tán tỉnh chính là thư kí của anh ta  --> đáp án chính là Secretary
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/434c7959-d1eb-434d-a902-5779b6978568)
 
 Q16:
 dựa vào hint về link dẫn folder của bài, em tìm được folder Sam
@@ -153,6 +160,14 @@ nên miriam.grapes chính là người đã tải xuống  LibreCAD
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/74028f6c-eb88-478f-87b1-92358f53a0e2)
 
 Q20:
+em research được là thông tin đăng nhập của người dùng thường được lưu trữ trong tệp "SAM" 
+nên em sẽ nghiên cứu file này.
+em dùng regripper để xác định các hoạt động login của users
+em dùng lệnh regripper -r SAM -p samparse
+và kết quả của em khá nhiều các thông tin login của các users
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2a2043d1-014f-44a1-a285-b28ecd7203cf)
+và tại đây em thấy được số lần login của admin là 10 
+và đó cũng là đáp án của câu này
 Q21:
 
 Q22:
