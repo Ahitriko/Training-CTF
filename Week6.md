@@ -77,7 +77,14 @@ và để ý thì em thấy nó khá giống với format nên em nhập vào v�
 
 Q10:
 
-
+Q11:
+em kiểm tra các folder AppData của các users và phát hiện được có tổng 5 web browser là Chorme,Firefox, Edge,Internet Explorer,Tor Browser
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d6732d48-8569-4c40-802d-d73a61440667)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4422cf88-a5a6-49e9-996d-28220e2a646f)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/16b20b74-9f3f-4ab8-83cf-69f5a102a7a6)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2c14e213-62f0-4b64-b388-c791b8a65481)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/cdf2bc12-b1ec-4399-9a90-c7489c048989)
+nên tổng sẽ có 5 web browser
 Q12:
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b4aaf071-623f-46a2-8aa6-b4ffedf0d6e2)
 em tìm được một file word trong từ folder Documents của User Tim
@@ -160,4 +167,85 @@ theo như hint từ đề bài là phân tích ntuser.dat từ user Jim thì em 
 và tiếp tục theo đường dẫn folder của bài thì em tìm được hoạt động khởi chạy các web và em thấy việc khoier chạy torbrowser 1 lần nhưng em nhập vào lần thì không đúng
 em thử nhập là 2 thì chính xác
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b5a16e2a-8d78-42af-9fb1-af47b4568e01)
+
+Q24:
+tại folders Downloads của user miriam.grapes và trong đó chứa hình ảnh của chiếc điện thoại
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/8d91e23a-eb64-407a-b312-57324443d3d8)
+em export hình ảnh này ra và xem thông tin cảu nó.
+nhưng để ý kĩ lại đề bài thì nó yêu cầu là file png , nhưng khi tải về em thấy lại là file .jpg nên em đã check hex và thông tin cảu file này
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/710a7b4a-7b6c-4b06-9ec7-ba74d9faa736)
+và đây là thông tin em nhận được
+và em dùng lệnh ls -al thì thấy file này có lượng dung lượng khá lớn nên có thể nó sẽ chứa dữ liệu ẩn gì đó
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/7d2f41ec-a7fe-43d6-816b-da4094863739)
+khi em chạy lệnh foremost thì em thấy có xuất hiện một directory png, em truy cập vào nó và thấy một file png và đó là một chiếc ip
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/8b1482d9-52c2-41fd-b3c9-02bf072177e5)
+và có lẽ đây chính là thứ em cần tìm. Và em dùng lệnh sha1sum để kiểm tra mã băm sha1
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f166cd81-293f-4a32-b165-bbf6563568f5)
+và kết quả chính là : 537fe19a560ba3578d2f9095dc2f591489ff2cde
+
+Q25:
+theo em tìm hiểu được thì mình có thể check last opened tại folder Recent 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/6024dfb1-4a3e-4dc0-ab3e-d39a14c0a114)
+nên em đã tìm kiếm Recent trong RegistryExplorer và em tìm được một vài thông tin liên quan đến nó
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f682f78a-d0bb-465e-a7d3-e7cecf9e9699)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a8edbe31-004a-4505-b9ac-3200d230d5d8)
+và em thấy được lần cuối mở file chính là vào : 2020-04-11 23:23:36
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4743c131-0692-4325-8262-908d7d083aa2)
+
+Q26:
+em tìm thấy file $MTF tại folder root
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/687ba48c-db0c-4a0a-bb3f-781014cf0010)
+em chuyển nó vào cùng với folder chứa mtfdump.py em tải về
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/9d8ff56a-c2e8-4337-a63c-6365d316fd45)
+và khi em chạy lệnh python3 mftdump.py '$MFT' thì có vẻ như nó bị lỗi gì đó
+em copy lên chatGPT thì nó báo là có thể nó không đúng phiên bản nên em đã dùng python2 thay vì python3
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d82c3db8-3b10-4c1f-8fe2-3d1b41da69ae)
+và khi em chạy lệnh python2 mtfdump.py '$MFT' thì chạy liên tục không dừng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4ac0aa5e-ffaa-4f56-b2eb-07ac70e94bcf)
+nên em đã chuyển nội dung khi chạy lệnh đó vào file.txt và sử dụng cat 'file.txt' | wc -l file.txtv
+để xem số dòng ( hay số mục của MFT )
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/93e6f625-1753-46cf-8fbe-aef7b04c439a)
+và em có kết quả là 219906, nhưng khi nhập vào thì kết quả lại báo sai, em kiểm tra lại file đó thì 2 đoạn đầu của file sẽ không tính vì đó là trường tên các cột và dòng thứ 2 là các dấu gạch ( nên không được tính là các mục của MFT)
+neneloaij bỏ 2 dòng đó thì em có kết quả là 219904
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e2ad341b-5354-40b5-a39f-6ddab56cbfd3)
+
+Q27:
+dựa theo hint từ đề bài thì em có thể là Tim sử dụng nên có thể trong lịch sử sử dụng avf tìm kiếm có thể sẽ có thông tin gì đó, và em tìm được file hsistory ở folder Details
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/fafc2d91-092e-4731-aa86-24e27b34857f)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/43fa47d5-f632-4c31-a491-144483e0235f)
+và em export file history và mở nó trên SQLite và phân tích nó, tại url gg em thấy một thông tin khá quan trọng
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/40e06314-3502-4c23-bd28-35a2ba225c94)
+và nhân viên của anh ta có một mùi gì đó khá khó chịu nên Tim search tìm cách để sa thải anh ta vì anh ta bị "stinky"
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/357fef0e-8ca3-42f1-96bd-59bee94e9ab9)
+
+Q28:
+em có thể thấy được đường dẫn folder liên quan đến việc "Quản lý các chương trình chạy khi khởi động Windows"
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/c70c8eaf-91fa-42e1-ad4b-d5e91d718ba8)
+vì bài yêu cầu với user admin nên em sẽ export file NTUSER.dat của users này (vì file này chứa thông tin cấu hình và cài đặt cá nhân của users này trên máy tính)
+và em tìm kiếm theo đường dẫn em tìm hiểu được và phát hiện ra dịch vụ đám mây ở đây chính là Onedrive (một dịch vụ đám mây cảu Microsoft)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/0748815a-7223-4f41-aa8b-c6ba14e4d570)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4f5a31d7-d4e8-4067-a5a3-5a701b9e96d2)
+
+
+Q30:
+em có thể tìm thấy "Địa chỉ IP của cài đặt Ethernet của tôi được lưu trong Sổ đăng ký ở đâu"
+HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a547644f-7162-4300-a9e4-39d0413d1173)
+tương tự như những câu khác thì em tìm kiếm theo bộ lọc vầ tìm được một bảng các ip sau 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/50ec3dc3-e4b0-4322-91fd-cda0b5825c57)
+và đề bài hỏi ip address nên đáp án sẽ là : 192.168.2.242
+
+Q31:
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/981fc978-f4bb-418d-a570-fb2abe995344)
+em có thể tìm được location của nơi lưu trữ những mục được ghim vào thanh tác vụ của họ
+<user dir>\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar
+và dựa theo đó em tìm được folder chứa các mục được ghim 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/d4e357c5-1dc2-4247-8a52-b09d542f3df2)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/22ba6c56-66b5-4f61-8d2c-f6379b815478)
+em thấy nó đều liên quan đến admin nên có thể nó sẽ là đáp án của câu này
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/7866dc7d-bc12-4794-85c8-826e2ffbc29f)
+
+Q32:
+
+
 
