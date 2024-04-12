@@ -168,7 +168,16 @@ và kết quả của em khá nhiều các thông tin login của các users
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/2a2043d1-014f-44a1-a285-b28ecd7203cf)
 và tại đây em thấy được số lần login của admin là 10 
 và đó cũng là đáp án của câu này
+
 Q21:
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/a526b3f6-4af0-4c8c-911a-98e8c90c60b3)
+em cso thể thấy được thông tin từ đây để nghiên cứu nó (có đường dẫn )
+em có thể sử dụng regripper để xem thông tin đó bằng lệnh : regripper -r SYSTEM -p ips
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/43e4b5e6-5a0f-4159-a7af-775ed1a16f9e)
+ControlSetXXX\Services\Tcpip\Parameters\Interfaces là một khóa Registry trong hệ điều hành windows và ips là một plugin và có khả năng trích xuất thông tin từ khóa trên
+và khi em chạy lệnh trên thì có được domains là fruitinc.xyz
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/f88586e6-9a66-4b76-84ed-8604df1a784d)
+
 
 Q22:
 em truy tìm đến phần Pictures của Tim và thấy được một hình ảnh quả táo ở đây
