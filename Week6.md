@@ -250,6 +250,18 @@ và em tìm kiếm theo đường dẫn em tìm hiểu được và phát hiện
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/0748815a-7223-4f41-aa8b-c6ba14e4d570)
 ![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4f5a31d7-d4e8-4067-a5a3-5a701b9e96d2)
 
+Q29: 
+đầu tiên em tìm hiểu được file prefetch là một file mà khi mình chạy các  file nào đó lần đầu thì nó sẽ lưu trữ dữ liệu củ file đó để những lần khác mở lại file đó sẽ được tối ưu hóa và giảm thiểu thời gian chạy
+và em tìm được location của file Prefetch đó 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/b1ab8efc-7093-42c3-ac3f-47cf627ead6c)
+từ đây em export file từ FTK imaginer và chạy nó với PECmd.exe
+vì bài hỏi liên quan đến FIREFOX nên em sẽ lọc chúng ra và dùng PECmd để phân tích các file FIEFOX 
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/4f0b0c04-f226-460c-aa3a-e3acc08a7db8)
+em sử dụng PECmd.exe để phân tích 4 file .pf (đây là các file prefetch) và em thấy được lượt chạy của file "FIREFOX.EXE-A606B53C.pf" có lượt chạy nhiều nhất là 21
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/e26fbaee-6dbf-4942-ac6d-c9799920894b)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/06e247e6-c0d3-4e67-82ff-e757e9bc2949)
+![image](https://github.com/Ahitriko/Training-CTF/assets/151734752/bba924ba-39f0-49d6-ba4a-0a6c8b9a597a)
+và đáp án cho câu này chính là "FIREFOX.EXE-A606B53C.pf/21"
 
 Q30:
 em có thể tìm thấy "Địa chỉ IP của cài đặt Ethernet của tôi được lưu trong Sổ đăng ký ở đâu"
